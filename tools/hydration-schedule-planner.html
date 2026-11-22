@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hydration Schedule Planner | Water Intake Calculator</title>
+<meta name="description" content="Spread your daily water target across your waking day with a simple hourly schedule.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;color:#0f2a43;background:#f0f8ff}
+a{color:#0369a1}header{background:#075985;color:#fff;padding:16px 0}
+.header-in{max-width:960px;margin:0 auto;padding:0 20px;text-align:center}
+.logo{font-size:clamp(24px,5vw,30px);font-weight:800;color:#fff;text-decoration:none;letter-spacing:.5px}
+.logo span{color:#7dd3fc}
+nav{margin-top:8px}nav a{color:#bae6fd;margin:0 10px;font-weight:600;font-size:15px;text-decoration:none}
+nav a:hover{color:#fff;text-decoration:underline}
+.hero{background:linear-gradient(180deg,#0369a1,#0ea5e9 70%,#38bdf8);color:#fff;padding:clamp(30px,6vw,54px) 20px 44px;text-align:center;border-radius:0 0 28px 28px}
+.hero h1{font-size:clamp(28px,6vw,42px);line-height:1.15;margin:0 0 10px}
+.hero p{font-size:clamp(15px,3vw,18px);max-width:640px;margin:0 auto 22px;color:#e0f2fe}
+.calc{background:#fff;color:#0f2a43;max-width:560px;margin:0 auto;padding:clamp(18px,4vw,28px);border-radius:20px;box-shadow:0 14px 34px rgba(3,105,161,.25);text-align:left}
+.calc h2{font-size:20px;margin:0 0 14px;color:#075985}
+.field{margin-bottom:14px}.field label{display:block;font-size:14px;font-weight:700;margin-bottom:5px;color:#475569}
+.btn{background:#0284c7;color:#fff}.btn:hover{background:#0369a1}
+.result{background:#f0f9ff;border:1px solid #7dd3fc}
+.card{background:#fff;border:1px solid #bae6fd;border-radius:16px;padding:22px;margin-bottom:20px}
+.acard{background:#fff;border:1px solid #bae6fd}
+.acard h3 a{color:#075985;text-decoration:none}.acard p{color:#64748b}
+.toolgrid a{background:#fff;border:1px solid #bae6fd;color:#075985}
+.toolgrid a:hover{border-color:#0284c7;background:#f0f9ff}
+.tip{background:#f0f9ff;border-left:4px solid #0284c7}
+h2{color:#075985}footer{color:#64748b;font-size:14px;margin-top:30px;padding:20px 0;text-align:center}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;line-height:1.65;font-size:16px}
+img{max-width:100%;height:auto}
+input,select,textarea,button{font-family:inherit;font-size:16px}
+input,select{width:100%;min-height:44px;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px}
+button,.btn{min-height:44px;padding:12px 22px;border:0;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.acard{overflow:hidden;border-radius:12px}
+.acard img{width:100%;height:160px;object-fit:cover;display:block}
+.acard div{padding:14px}
+.acard h3{margin:0 0 6px;font-size:16px;line-height:1.35}
+.acard p{margin:0;font-size:14px}
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.toolgrid a{padding:18px;border-radius:12px;text-decoration:none;display:block;font-weight:700}
+.result{padding:16px;border-radius:10px;margin-top:16px}
+.result .big{font-size:clamp(22px,5vw,28px);font-weight:800}
+.tip{padding:14px 16px;border-radius:10px;margin:18px 0}
+.faq h3{font-size:16px;margin:18px 0 4px}
+article img.heroimg{width:100%;max-height:380px;object-fit:cover;border-radius:12px;display:block}
+@media(max-width:640px){
+  .wrap{padding:0 14px}
+  .grid,.toolgrid{grid-template-columns:1fr}
+  .acard img{height:180px}
+  nav a{margin:0 6px}
+}
+@media(max-width:480px){
+  body{font-size:16px}
+  .wrap{padding:0 12px}
+  h1{font-size:26px !important}
+  .btn,button{width:100%}
+  .acard img{height:170px}
+}
+</style></head>
+<body><header><div class="header-in"><a class="logo" href="../index.html">Water Intake Calculator</a><nav><a href="../index.html">Home</a><a href="../tools/water-intake-calculator.html">Calculator</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav></div></header><main class="wrap"><div class="card" style="margin-top:20px"><h1>Hydration Schedule Planner</h1><p>Spread your daily water target across your waking day with a simple hourly schedule.</p><div class="field"><label for="wake">Wake-up time</label><input type="time" id="wake" value="07:00"></div>
+<div class="field"><label for="bed">Bedtime</label><input type="time" id="bed" value="23:00"></div>
+<div class="field"><label for="total">Daily water target (ml)</label><input type="number" id="total" value="2500" min="500" max="6000" step="100"></div>
+<button class="btn" type="button" onclick="calcSched()">Build My Hydration Schedule</button>
+<div id="out3" class="result" style="display:none"></div>
+<script>
+function mins(t){var p=t.split(':');return parseInt(p[0],10)*60+parseInt(p[1],10);}
+function hhmm(m){m=((m%1440)+1440)%1440;var h=Math.floor(m/60),mm=m%60;return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm;}
+function calcSched(){
+  var wake=document.getElementById('wake').value, bed=document.getElementById('bed').value;
+  var total=parseFloat(document.getElementById('total').value);
+  var out=document.getElementById('out3');
+  if(!wake||!bed||isNaN(total)||total<500||total>6000){
+    out.style.display='block';out.innerHTML='Please enter a wake time, a bedtime and a target between 500 and 6000 ml.';return;}
+  var w=mins(wake), b=mins(bed);
+  var awake = b>w ? b-w : b+1440-w;
+  if(awake<6*60||awake>20*60){out.style.display='block';out.innerHTML='Please check your times: the waking day should be between 6 and 20 hours.';return;}
+  var per=Math.round(total/8/50)*50;
+  var rows='';
+  for(var i=0;i<8;i++){var t=w+Math.round(awake*i/8);rows+='<p>'+hhmm(t)+' — about '+per+' ml</p>';}
+  out.style.display='block';
+  out.innerHTML='<p>Your day is about '+(Math.round(awake/60*10)/10)+' hours long. Spread your <strong>'+Math.round(total).toLocaleString()+' ml</strong> across 8 drinks:</p>'+rows
+   +'<p>Drink less in the last hour before bed, so you are not waking up at night. Keep a bottle at your desk or in your bag so the next drink is always within reach.</p>';
+}
+</script><p style="font-size:14px;color:#666;margin-top:14px">Note: results are estimates based on general guidance and the information you enter, and are not medical advice. Water needs vary with health conditions, medicines, pregnancy and breastfeeding. If you have kidney, heart or other health conditions, ask your doctor how much water is right for you.</p></div><p><a href="../index.html">&larr; Back to home</a> | <a href="water-intake-calculator.html">Main calculator</a></p></main><footer><p>Water Intake Calculator — free online calculators and practical guides. <a href="../about.html">About</a> | <a href="../contact.html">Contact</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../disclaimer.html">Disclaimer</a></p><p>Results are estimates for general information only.</p></footer></body></html>

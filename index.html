@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Water Intake Calculator | Water Intake Calculator</title>
+<meta name="description" content="Free daily water intake, exercise hydration and climate calculators with practical guides.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;color:#0f2a43;background:#f0f8ff}
+a{color:#0369a1}header{background:#075985;color:#fff;padding:16px 0}
+.header-in{max-width:960px;margin:0 auto;padding:0 20px;text-align:center}
+.logo{font-size:clamp(24px,5vw,30px);font-weight:800;color:#fff;text-decoration:none;letter-spacing:.5px}
+.logo span{color:#7dd3fc}
+nav{margin-top:8px}nav a{color:#bae6fd;margin:0 10px;font-weight:600;font-size:15px;text-decoration:none}
+nav a:hover{color:#fff;text-decoration:underline}
+.hero{background:linear-gradient(180deg,#0369a1,#0ea5e9 70%,#38bdf8);color:#fff;padding:clamp(30px,6vw,54px) 20px 44px;text-align:center;border-radius:0 0 28px 28px}
+.hero h1{font-size:clamp(28px,6vw,42px);line-height:1.15;margin:0 0 10px}
+.hero p{font-size:clamp(15px,3vw,18px);max-width:640px;margin:0 auto 22px;color:#e0f2fe}
+.calc{background:#fff;color:#0f2a43;max-width:560px;margin:0 auto;padding:clamp(18px,4vw,28px);border-radius:20px;box-shadow:0 14px 34px rgba(3,105,161,.25);text-align:left}
+.calc h2{font-size:20px;margin:0 0 14px;color:#075985}
+.field{margin-bottom:14px}.field label{display:block;font-size:14px;font-weight:700;margin-bottom:5px;color:#475569}
+.btn{background:#0284c7;color:#fff}.btn:hover{background:#0369a1}
+.result{background:#f0f9ff;border:1px solid #7dd3fc}
+.card{background:#fff;border:1px solid #bae6fd;border-radius:16px;padding:22px;margin-bottom:20px}
+.acard{background:#fff;border:1px solid #bae6fd}
+.acard h3 a{color:#075985;text-decoration:none}.acard p{color:#64748b}
+.toolgrid a{background:#fff;border:1px solid #bae6fd;color:#075985}
+.toolgrid a:hover{border-color:#0284c7;background:#f0f9ff}
+.tip{background:#f0f9ff;border-left:4px solid #0284c7}
+h2{color:#075985}footer{color:#64748b;font-size:14px;margin-top:30px;padding:20px 0;text-align:center}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;line-height:1.65;font-size:16px}
+img{max-width:100%;height:auto}
+input,select,textarea,button{font-family:inherit;font-size:16px}
+input,select{width:100%;min-height:44px;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px}
+button,.btn{min-height:44px;padding:12px 22px;border:0;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.acard{overflow:hidden;border-radius:12px}
+.acard img{width:100%;height:160px;object-fit:cover;display:block}
+.acard div{padding:14px}
+.acard h3{margin:0 0 6px;font-size:16px;line-height:1.35}
+.acard p{margin:0;font-size:14px}
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.toolgrid a{padding:18px;border-radius:12px;text-decoration:none;display:block;font-weight:700}
+.result{padding:16px;border-radius:10px;margin-top:16px}
+.result .big{font-size:clamp(22px,5vw,28px);font-weight:800}
+.tip{padding:14px 16px;border-radius:10px;margin:18px 0}
+.faq h3{font-size:16px;margin:18px 0 4px}
+article img.heroimg{width:100%;max-height:380px;object-fit:cover;border-radius:12px;display:block}
+@media(max-width:640px){
+  .wrap{padding:0 14px}
+  .grid,.toolgrid{grid-template-columns:1fr}
+  .acard img{height:180px}
+  nav a{margin:0 6px}
+}
+@media(max-width:480px){
+  body{font-size:16px}
+  .wrap{padding:0 12px}
+  h1{font-size:26px !important}
+  .btn,button{width:100%}
+  .acard img{height:170px}
+}
+</style></head>
+<body><header><div class="header-in"><a class="logo" href="index.html">Water Intake Calculator</a><nav><a href="index.html">Home</a><a href="tools/water-intake-calculator.html">Calculator</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header><section class="hero"><h1>Daily Water Intake Calculator — How Much Water Do You Need?</h1><p>Estimate your daily water needs from your weight, activity and climate — then spread it across your day with a simple schedule.</p><div class="calc"><h2>Daily Water Intake Calculator</h2><div class="field"><label for="weight">Your weight (kg)</label><input type="number" id="weight" value="70" min="20" max="300" step="0.1"></div>
+<div class="field"><label for="act">Activity level</label><select id="act">
+<option value="0">Mostly sedentary</option>
+<option value="350" selected>Moderately active — some exercise most days</option>
+<option value="700">Very active — hard training or physical work</option></select></div>
+<div class="field"><label for="climate">Climate</label><select id="climate">
+<option value="0" selected>Temperate</option>
+<option value="350">Hot — above about 30°C</option>
+<option value="500">Very hot — above about 35°C, or humid heat</option></select></div>
+<button class="btn" type="button" onclick="calcWater()">Calculate My Water Intake</button>
+<div id="out" class="result" style="display:none"></div>
+<script>
+function calcWater(){
+  var w=parseFloat(document.getElementById('weight').value);
+  var act=parseFloat(document.getElementById('act').value);
+  var cl=parseFloat(document.getElementById('climate').value);
+  var out=document.getElementById('out');
+  if(isNaN(w)||w<20||w>300){out.style.display='block';out.innerHTML='Please enter a weight between 20 and 300 kg.';return;}
+  var base=w*35;
+  var total=base+act+cl;
+  var litres=Math.round(total/100)/10;
+  var glasses=Math.round(total/250);
+  out.style.display='block';
+  out.innerHTML='<p>Your estimated daily water intake is</p><p class="big">'+litres.toLocaleString()+' litres per day</p>'
+   +'<p>That is about <strong>'+glasses+' glasses</strong> of 250 ml, or about <strong>'+(Math.round(total/500))+' bottles</strong> of 500 ml.</p>'
+   +'<p>Base need from your weight: '+Math.round(base).toLocaleString()+' ml (35 ml per kg, a common guideline figure). '
+   +'Activity adds '+act+' ml and climate adds '+cl+' ml. Food provides roughly a fifth of daily water, so you do not need to drink the whole amount.</p>'
+   +'<p>Drink to thirst as well as to a target, and spread intake through the day rather than drinking it all at once.</p>';
+}
+</script></div></section><main class="wrap"><section><h2>How It Works</h2><p>Our water intake calculator starts from the common guideline of 35 ml per kilogram of body weight, then adds for activity and climate. Enter your weight in the <a href="tools/water-intake-calculator.html">main calculator</a> and you will get a daily target in litres, glasses and bottles.</p><p>If you exercise, the <a href="tools/water-intake-by-activity.html">activity calculator</a> works out the extra water a session needs, before, during and after. The <a href="tools/water-intake-by-climate.html">climate calculator</a> adjusts your target for temperature and humidity, and the <a href="tools/hydration-schedule-planner.html">hydration schedule planner</a> spreads the total across your waking day.</p><p>To understand the numbers, read <a href="guides/how-much-water-per-day.html">how much water per day</a> and <a href="guides/water-intake-by-body-weight.html">water intake by body weight</a>. For the warning signs, see <a href="guides/signs-of-dehydration.html">signs of dehydration</a> and <a href="guides/overhydration-risks.html">can you drink too much water</a> — and if you want the detail on exercise, <a href="guides/water-and-exercise.html">water and exercise</a> explains sweat losses and replacement.</p></section><section><h2>All Calculators</h2><div class="toolgrid"><a href="tools/water-intake-calculator.html"><strong>Daily Water Intake Calculator</strong><br><span style="font-weight:400;font-size:14px">Estimate your daily water needs from your weight, activity and climate.</span></a><a href="tools/water-intake-by-activity.html"><strong>Water Intake by Activity Calculator</strong><br><span style="font-weight:400;font-size:14px">Work out how much extra water an exercise session needs, before, during and after.</span></a><a href="tools/hydration-schedule-planner.html"><strong>Hydration Schedule Planner</strong><br><span style="font-weight:400;font-size:14px">Spread your daily water target across your waking day with a simple hourly schedule.</span></a><a href="tools/water-intake-by-climate.html"><strong>Water Intake by Climate Calculator</strong><br><span style="font-weight:400;font-size:14px">Adjust your daily water target for temperature, humidity and time outdoors in the heat.</span></a></div></section><section><h2>Guides</h2><div class="grid"><div class="acard"><a href="guides/how-to-use-water-intake-calculator.html"><img src="images/how-to-use-water-intake-calculator.jpg" alt="How to Use a Water Intake Calculator" loading="lazy"></a><div><h3><a href="guides/how-to-use-water-intake-calculator.html">How to Use a Water Intake Calculator</a></h3><p>A step-by-step guide to getting a realistic daily water target from your weight, activity and climate.</p></div></div><div class="acard"><a href="guides/how-much-water-per-day.html"><img src="images/how-much-water-per-day.jpg" alt="How Much Water Should You Drink Per Day?" loading="lazy"></a><div><h3><a href="guides/how-much-water-per-day.html">How Much Water Should You Drink Per Day?</a></h3><p>The guidelines behind daily water intake, why there is no single magic number, and how to find yours.</p></div></div><div class="acard"><a href="guides/water-intake-by-body-weight.html"><img src="images/water-intake-by-body-weight.jpg" alt="Water Intake by Body Weight" loading="lazy"></a><div><h3><a href="guides/water-intake-by-body-weight.html">Water Intake by Body Weight</a></h3><p>How the 30 to 35 ml per kilogram guideline works, with worked examples for different weights.</p></div></div><div class="acard"><a href="guides/water-and-exercise.html"><img src="images/water-and-exercise.jpg" alt="Water and Exercise: How Much Extra Do You Need?" loading="lazy"></a><div><h3><a href="guides/water-and-exercise.html">Water and Exercise: How Much Extra Do You Need?</a></h3><p>How sweat losses change with exercise, how to replace them before, during and after training, and when salts matter.</p></div></div><div class="acard"><a href="guides/hydration-schedule-day.html"><img src="images/hydration-schedule-day.jpg" alt="Your Daily Hydration Schedule" loading="lazy"></a><div><h3><a href="guides/hydration-schedule-day.html">Your Daily Hydration Schedule</a></h3><p>How to spread your water intake across the day, from the first glass in the morning to the last one before bed.</p></div></div><div class="acard"><a href="guides/signs-of-dehydration.html"><img src="images/signs-of-dehydration.jpg" alt="Signs of Dehydration to Watch For" loading="lazy"></a><div><h3><a href="guides/signs-of-dehydration.html">Signs of Dehydration to Watch For</a></h3><p>The early and later signs that you are not drinking enough, who is most at risk, and what to do about it.</p></div></div><div class="acard"><a href="guides/overhydration-risks.html"><img src="images/overhydration-risks.jpg" alt="Can You Drink Too Much Water?" loading="lazy"></a><div><h3><a href="guides/overhydration-risks.html">Can You Drink Too Much Water?</a></h3><p>Overhydration and hyponatraemia explained: how much is too much, who is at risk, and how to stay in the safe range.</p></div></div><div class="acard"><a href="guides/water-intake-hot-climate.html"><img src="images/water-intake-hot-climate.jpg" alt="Water Intake in a Hot Climate" loading="lazy"></a><div><h3><a href="guides/water-intake-hot-climate.html">Water Intake in a Hot Climate</a></h3><p>How heat raises your water needs, how to adjust your target, and practical tips for staying hydrated in hot weather.</p></div></div><div class="acard"><a href="guides/water-intake-winter.html"><img src="images/water-intake-winter.jpg" alt="Water Intake in Winter" loading="lazy"></a><div><h3><a href="guides/water-intake-winter.html">Water Intake in Winter</a></h3><p>Why you still need enough water in cold weather, how winter changes your needs, and how to remember to drink when you are not thirsty.</p></div></div><div class="acard"><a href="guides/water-for-children.html"><img src="images/water-for-children.jpg" alt="Water Intake for Children" loading="lazy"></a><div><h3><a href="guides/water-for-children.html">Water Intake for Children</a></h3><p>How much water children need at different ages, how to encourage drinking, and the signs of dehydration in children.</p></div></div><div class="acard"><a href="guides/water-for-older-adults.html"><img src="images/water-for-older-adults.jpg" alt="Water Intake for Older Adults" loading="lazy"></a><div><h3><a href="guides/water-for-older-adults.html">Water Intake for Older Adults</a></h3><p>Why hydration gets harder with age, how much older adults need, and practical ways to drink enough every day.</p></div></div><div class="acard"><a href="guides/water-and-weight-loss.html"><img src="images/water-and-weight-loss.jpg" alt="Water and Weight Loss" loading="lazy"></a><div><h3><a href="guides/water-and-weight-loss.html">Water and Weight Loss</a></h3><p>How drinking water helps weight loss, how much to drink, and the habits that make it work.</p></div></div><div class="acard"><a href="guides/water-vs-other-drinks.html"><img src="images/water-vs-other-drinks.jpg" alt="Water vs Other Drinks: What Counts?" loading="lazy"></a><div><h3><a href="guides/water-vs-other-drinks.html">Water vs Other Drinks: What Counts?</a></h3><p>Which drinks hydrate you, which ones do not, and how tea, coffee, juice, milk and alcohol compare with water.</p></div></div><div class="acard"><a href="guides/electrolytes-explained.html"><img src="images/electrolytes-explained.jpg" alt="Electrolytes Explained" loading="lazy"></a><div><h3><a href="guides/electrolytes-explained.html">Electrolytes Explained</a></h3><p>What electrolytes are, why sweat depletes them, when you need to replace them, and how food and drinks do it.</p></div></div><div class="acard"><a href="guides/water-intake-for-runners.html"><img src="images/water-intake-for-runners.jpg" alt="Water Intake for Runners" loading="lazy"></a><div><h3><a href="guides/water-intake-for-runners.html">Water Intake for Runners</a></h3><p>How runners should hydrate before, during and after a run, how to estimate sweat loss, and how to avoid over-drinking.</p></div></div><div class="acard"><a href="guides/tracking-daily-water.html"><img src="images/tracking-daily-water.jpg" alt="Tracking Your Daily Water Intake" loading="lazy"></a><div><h3><a href="guides/tracking-daily-water.html">Tracking Your Daily Water Intake</a></h3><p>Simple ways to track how much you drink, the tools that help, and how to use the record to build a habit.</p></div></div><div class="acard"><a href="guides/water-quality-at-home.html"><img src="images/water-quality-at-home.jpg" alt="Water Quality at Home" loading="lazy"></a><div><h3><a href="guides/water-quality-at-home.html">Water Quality at Home</a></h3><p>How tap water is treated, when a filter helps, and how to store water safely at home.</p></div></div><div class="acard"><a href="guides/morning-hydration-habits.html"><img src="images/morning-hydration-habits.jpg" alt="Morning Hydration Habits" loading="lazy"></a><div><h3><a href="guides/morning-hydration-habits.html">Morning Hydration Habits</a></h3><p>Why the first glass of the day matters, and how to build a morning drinking habit that lasts.</p></div></div><div class="acard"><a href="guides/water-intake-myths.html"><img src="images/water-intake-myths.jpg" alt="Water Intake Myths Debunked" loading="lazy"></a><div><h3><a href="guides/water-intake-myths.html">Water Intake Myths Debunked</a></h3><p>The most common wrong ideas about drinking water, from eight glasses to coffee, and what is actually true.</p></div></div><div class="acard"><a href="guides/water-intake-in-pregnancy.html"><img src="images/water-intake-in-pregnancy.jpg" alt="Water Intake in Pregnancy" loading="lazy"></a><div><h3><a href="guides/water-intake-in-pregnancy.html">Water Intake in Pregnancy</a></h3><p>How much water to drink during pregnancy, why needs rise, and how to stay hydrated safely.</p></div></div></div><p style="margin-top:16px"><a class="btn" href="guides/how-to-use-water-intake-calculator.html">Browse all guides</a></p></section><section><h2>Frequently Asked Questions</h2><div class="faq"><h3>How much water should I drink a day?</h3><p>A common guideline is 30 to 35 ml per kilogram of body weight, plus more for exercise and heat. For a 70 kg adult that is roughly 2.1 to 2.5 litres, including water from food.</p><h3>Does food count towards water intake?</h3><p>Yes. About a fifth of daily water usually comes from food, especially fruit, vegetables, soups and yoghurt.</p><h3>Do tea and coffee count?</h3><p>Yes, they count towards fluid intake. Alcohol does not, because it increases water loss.</p><h3>How do I know if I drink enough?</h3><p>Pale straw-coloured urine, regular toilet trips, and no persistent thirst or headache are good signs.</p><h3>Can you drink too much water?</h3><p>Yes, rarely. Very large volumes in a short time can dilute blood sodium. Spread intake through the day.</p><h3>Is my data stored anywhere?</h3><p>No. The calculation runs in your browser, and nothing you enter is sent or stored.</p></div></section></main><footer><p>Water Intake Calculator — free online calculators and practical guides. <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy Policy</a> | <a href="disclaimer.html">Disclaimer</a></p><p>Results are estimates for general information only.</p></footer></body></html>

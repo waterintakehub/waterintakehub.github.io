@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://waterintake.github.io/sitemap.xml
